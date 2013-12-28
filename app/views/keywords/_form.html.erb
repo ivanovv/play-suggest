@@ -1,0 +1,22 @@
+<%= form_tag('/', {:method => :post, :class =>'form'}) do |f| %>
+  <% if @keyword.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@keyword.errors.count, 'error') %> prohibited this keyword from being saved:</h2>
+
+      <ul>
+      <% @keyword.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label_tag 'keyword_value', 'Your query', :class => 'control-label' %><br>
+    <%= text_field_tag 'keyword[value]', '', :class => 'form-control' %>
+    <span class="help-block">Enter the keyword to lookup suggestions for.</span>
+  </div>
+
+  <%= submit_tag 'Get keywords', :class=> 'btn btn-default btn-primary' %>
+
+<% end %>
