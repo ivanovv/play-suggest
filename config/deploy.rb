@@ -3,13 +3,13 @@ set :rbenv_ruby, '2.0.0-p247'
 
 fetch(:default_env).merge!(rails_env: :production)
 
-set :application, 'ebay_suggest'
+set :application, 'play_suggest'
 
 set :scm, :git
 set :repo_url, 'https://github.com/ivanovv/ebay-suggestor.git'
 set :branch, 'master'
 
-set :deploy_to, '/home/deploy/apps/ebay_suggest/'
+set :deploy_to, '/home/deploy/apps/play_suggest/'
 
 set :log_level, :debug
 
