@@ -9,7 +9,7 @@
 </div>
 
 
-<% @keyword.suggestions.order(:value).each do |sug|%>
+<% @keyword.suggestions.sort_by{|s|s.value}.each do |sug|%>
 
 <div class="list-group">
   <a href="#" class="list-group-item active">
