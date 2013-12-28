@@ -1,6 +1,7 @@
 require 'em-synchrony'
 require 'em-synchrony/em-http'
 require 'em-synchrony/fiber_iterator'
+require 'securerandom'
 
 class KeywordsController < ApplicationController
   skip_before_filter :verify_authenticity_token
@@ -41,8 +42,9 @@ class KeywordsController < ApplicationController
         letters << ' '
         #letters = %w(a s)
         urls = letters.map do |l|
+          rnd_str = SecureRandom.urlsafe_base64(20).gsub(/[\d\-\_]/, '')[0..8].downcase
           {
-              :url => "https://market.android.com/suggest/SuggRequest?json=1&c=0&query=#{URI.escape(kw+l)}&hl=en&gl=US&callback=_callbacks_._ahpqafiof",
+              :url => "https://market.android.com/suggest/SuggRequest?json=1&c=0&query=#{URI.escape(kw+l)}&hl=en&gl=US&callback=_callbacks_._#{rnd_str}",
               :letter => "#{kw}#{l}"
           }
         end
