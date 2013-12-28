@@ -3,9 +3,9 @@ worker_processes(1)
 preload_app true
 user('deploy')
 timeout 40
-app_path = '/home/deploy/apps/ebay_suggest/current'
+app_path = '/home/deploy/apps/play_suggest/current'
 
-listen "/tmp/unicorn_ebay_suggest.sock"
+listen "/tmp/unicorn_play_suggest.sock"
 working_directory app_path
 pid "#{app_path}/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/log/unicorn.stderr.log"

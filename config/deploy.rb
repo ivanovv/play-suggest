@@ -6,7 +6,7 @@ fetch(:default_env).merge!(rails_env: :production)
 set :application, 'play_suggest'
 
 set :scm, :git
-set :repo_url, 'https://github.com/ivanovv/ebay-suggestor.git'
+set :repo_url, 'https://github.com/ivanovv/play-suggest.git'
 set :branch, 'master'
 
 set :deploy_to, '/home/deploy/apps/play_suggest/'
@@ -16,10 +16,10 @@ set :log_level, :debug
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-
 set :unicorn_conf, "config/unicorn.rb"
 set :unicorn_pid, "#{release_path}/tmp/pids/unicorn.pid"
 set :unicorn_start_cmd, "(cd #{release_path}; bundle exec unicorn_rails -Dc #{fetch(:unicorn_conf)} -E production)"
+
 
 namespace :deploy do
 
