@@ -44,7 +44,7 @@ class KeywordsController < ApplicationController
         urls = letters.map do |l|
           rnd_str = SecureRandom.urlsafe_base64(20).gsub(/[\d\-\_]/, '')[0..8].downcase
           {
-              :url => "https://market.android.com/suggest/SuggRequest?json=1&c=0&query=#{URI.escape(kw+l)}&hl=en&gl=US&callback=_callbacks_._#{rnd_str}",
+              :url => "https://market.android.com/suggest/SuggRequest?json=1&c=3&query=#{URI.escape(kw+l)}&hl=en&gl=US&callback=_callbacks_._#{rnd_str}",
               :letter => "#{kw}#{l}"
           }
         end
